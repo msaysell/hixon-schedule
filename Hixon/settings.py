@@ -105,6 +105,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGGING = {
+    "loggers": {
+        'SysLog': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.SysLogHandler',
+            'formatter': 'simple',
+            'address': ('logsN.papertrailapp.com', 'hixon-community-centre')
+        },
+    }
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
