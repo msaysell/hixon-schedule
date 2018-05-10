@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import django_heroku
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -132,3 +134,5 @@ BOWER_COMPONENTS_ROOT = '/Hixon/components/'
 BOWER_INSTALLED_APPS = ('jquery',
                         'jquery-ui',
                         'bootstrap')
+
+django_heroku.settings(locals())
