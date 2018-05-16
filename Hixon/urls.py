@@ -19,7 +19,7 @@ from schedule import urls as schedule_urls
 from schedule.views import FullCalendarView
 
 urlpatterns = [
-    path('', FullCalendarView.as_view(), kwargs={'calendar_slug': 'hixon'}),
+    path('', FullCalendarView.as_view(template_name='calendar.html'), kwargs={'calendar_slug': 'hixon'}),
     path('schedule/', include(schedule_urls)),
     path('admin/', admin.site.urls)
 ]
