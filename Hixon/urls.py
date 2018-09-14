@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 from schedule import urls as schedule_urls
 from schedule.views import FullCalendarView
 
 urlpatterns = [
-    path('', FullCalendarView.as_view(template_name='calendar.html'), kwargs={'calendar_slug': 'hixon'}),
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('calendar/', FullCalendarView.as_view(template_name='calendar.html'), name='calendar', kwargs={'calendar_slug': 'hixon'}),
     path('schedule/', include(schedule_urls)),
     path('admin/', admin.site.urls)
 ]

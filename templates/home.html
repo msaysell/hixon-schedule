@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block extra_head %}
+    <style>
+    .carousel {
+      margin-bottom: 4rem;
+    }
+    .carousel-item {
+      height: 26rem;
+      background-color: #777;
+    }
+    .carousel-item > img {
+          {#position: absolute;#}
+          {#top: 0;#}
+          {#left: 0;#}
+          min-width: 100%;
+          height: 32rem;
+    }
+
+    /* Center align the text within the three columns below the carousel */
+    .marketing .col-lg-4 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .marketing h2 {
+      font-weight: 400;
+    }
+    .marketing .col-lg-4 p {
+      margin-right: .75rem;
+      margin-left: .75rem;
+    }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div id="homeCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static "carousel_base.jpg" %}" alt="first slide"/>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1 class="display-1">Hixon Memorial Hall</h1>
+                        <p class="">Hixon Memorial Hall is the hub of the community in Hixon, Staffordshire; with regular groups meeting here and is available for hire for any occasion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+{#          <a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">#}
+{#            <span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
+{#            <span class="sr-only">Previous</span>#}
+{#          </a>#}
+{#          <a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">#}
+{#            <span class="carousel-control-next-icon" aria-hidden="true"></span>#}
+{#            <span class="sr-only">Next</span>#}
+{#          </a>#}
+    </div>
+
+    <div class="container marketing">
+        <div class="row">
+          <div class="col-lg-4">
+              <img class="rounded-circle"
+                src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUyIDUyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MiA1MjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiMxMDgxRTA7IiBkPSJNMzguODUzLDUuMzI0TDM4Ljg1Myw1LjMyNGMtNy4wOTgtNy4wOTgtMTguNjA3LTcuMDk4LTI1LjcwNiwwaDAgIEM2Ljc1MSwxMS43Miw2LjAzMSwyMy43NjMsMTEuNDU5LDMxTDI2LDUybDE0LjU0MS0yMUM0NS45NjksMjMuNzYzLDQ1LjI0OSwxMS43MiwzOC44NTMsNS4zMjR6IE0yNi4xNzcsMjRjLTMuMzE0LDAtNi0yLjY4Ni02LTYgIHMyLjY4Ni02LDYtNnM2LDIuNjg2LDYsNlMyOS40OTEsMjQsMjYuMTc3LDI0eiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K"
+                alt="Generic placeholder image" width="100" height="100">
+            <h2>Address</h2>
+              <p>High St
+                  <br>Hixon
+                  <br>Stafford
+                  <br>ST18 0QF
+              </p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4"><img  />
+            <img class="rounded-circle"
+                 src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0MDguNzg4IDQwOC43ODgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQwOC43ODggNDA4Ljc4ODsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiM0NzU5OTM7IiBkPSJNMzUzLjcwMSwwSDU1LjA4N0MyNC42NjUsMCwwLjAwMiwyNC42NjIsMC4wMDIsNTUuMDg1djI5OC42MTZjMCwzMC40MjMsMjQuNjYyLDU1LjA4NSw1NS4wODUsNTUuMDg1ICBoMTQ3LjI3NWwwLjI1MS0xNDYuMDc4aC0zNy45NTFjLTQuOTMyLDAtOC45MzUtMy45ODgtOC45NTQtOC45MmwtMC4xODItNDcuMDg3Yy0wLjAxOS00Ljk1OSwzLjk5Ni04Ljk4OSw4Ljk1NS04Ljk4OWgzNy44ODIgIHYtNDUuNDk4YzAtNTIuOCwzMi4yNDctODEuNTUsNzkuMzQ4LTgxLjU1aDM4LjY1YzQuOTQ1LDAsOC45NTUsNC4wMDksOC45NTUsOC45NTV2MzkuNzA0YzAsNC45NDQtNC4wMDcsOC45NTItOC45NSw4Ljk1NSAgbC0yMy43MTksMC4wMTFjLTI1LjYxNSwwLTMwLjU3NSwxMi4xNzItMzAuNTc1LDMwLjAzNXYzOS4zODloNTYuMjg1YzUuMzYzLDAsOS41MjQsNC42ODMsOC44OTIsMTAuMDA5bC01LjU4MSw0Ny4wODcgIGMtMC41MzQsNC41MDYtNC4zNTUsNy45MDEtOC44OTIsNy45MDFoLTUwLjQ1M2wtMC4yNTEsMTQ2LjA3OGg4Ny42MzFjMzAuNDIyLDAsNTUuMDg0LTI0LjY2Miw1NS4wODQtNTUuMDg0VjU1LjA4NSAgQzQwOC43ODYsMjQuNjYyLDM4NC4xMjQsMCwzNTMuNzAxLDB6Ii8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo="
+                 alt="Generic placeholder image" width="100" height="100">
+            <h2>Find us on Facebook</h2>
+            <p>Click below to visit our facebook page</p>
+            <p><a class="btn btn-secondary" href="https://www.facebook.com/hixonmemorialhall" role="button">Visit</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="rounded-circle"
+                 src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDQ4NS4yMTMgNDg1LjIxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDg1LjIxMyA0ODUuMjEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTI0Mi42MDcsMEMxMDguNjI5LDAsMC4wMDEsMTA4LjYyOCwwLjAwMSwyNDIuNjA2YzAsMTMzLjk3NiwxMDguNjI4LDI0Mi42MDYsMjQyLjYwNiwyNDIuNjA2ICAgYzEzMy45NzgsMCwyNDIuNjA0LTEwOC42MzEsMjQyLjYwNC0yNDIuNjA2QzQ4NS4yMTIsMTA4LjYyOCwzNzYuNTg1LDAsMjQyLjYwNywweiBNMzcwLjcxOSwzNTMuOTg5bC0xOS40MjUsMTkuNDI5ICAgYy0zLjQ2OCwzLjQ2My0xMy42MjMsNS42MjQtMTMuOTQ5LDUuNjI0Yy02MS40NTIsMC41MzYtMTIwLjYyMS0yMy42MDItMTY0LjA5NS02Ny4wOGMtNDMuNTkzLTQzLjYxOC02Ny43NTktMTAyLjk5OC02Ny4xMS0xNjQuNjU3ICAgYzAtMC4wMjgsMi4yMjQtOS44OTIsNS42ODktMTMuMzI0bDE5LjQyNC0xOS40MjdjNy4xMDgtNy4xNDEsMjAuNzYyLTEwLjM2OCwzMC4zMjctNy4xNjhsNC4wODYsMS4zNjMgICBjOS41MzcsMy4xOTcsMTkuNTUsMTMuNzQyLDIyLjE4NSwyMy40NTdsOS43NzEsMzUuODYyYzIuNjM1LDkuNzQzLTAuOTE5LDIzLjYwNC04LjAyNSwzMC43MTJsLTEyLjk3LDEyLjk3MiAgIGMxMi43MzQsNDcuMTQyLDQ5LjcyMyw4NC4xMzgsOTYuODczLDk2LjkwM2wxMi45NjUtMTIuOTc1YzcuMTQxLTcuMTQxLDIwLjk5Ny0xMC42OTIsMzAuNzE5LTguMDYxbDM1Ljg1Nyw5LjgwNiAgIGM5LjcxNywyLjY3LDIwLjI2LDEyLjYyLDIzLjQ1NiwyMi4xNTRsMS4zNjMsNC4xNDVDMzgxLjAyOCwzMzMuMjYyLDM3Ny44MjYsMzQ2LjkxMywzNzAuNzE5LDM1My45ODl6IiBmaWxsPSIjMDA2REYwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="
+                 alt="Generic placeholder image" width="100" height="100">
+            <h2>Phone</h2>
+            <p>01889270151</p>
+          </div>
+        </div>
+    </div>
+{% endblock %}
