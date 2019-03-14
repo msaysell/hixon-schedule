@@ -19,7 +19,7 @@
                         <div class="col-sm-6"><p>{{evt.start|date:"P"}} - {{ evt.end|date:"P" }}</p></div>
                         <div class="col-sm-6">
                             <p>{{ evt.title }}</p>
-                            <p class="font-weight-light">{{ evt.description }}</p>
+                            <p class="font-weight-light">{{ evt.description|linebreaksbr }}</p>
                         </div>
                     </div>
                     {% endfor %}
