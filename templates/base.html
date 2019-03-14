@@ -38,12 +38,13 @@
 
       <div class="collapse navbar-collapse" id="navBar">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item ">
-            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'calendar' %}">Calendar<span class="sr-only">(current)</span></a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'calendar' %}">Calendar<span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'regular_events' %}">Regular Events<span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'booking' %}">Bookings<span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'hundred_club' %}">100 Club<span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'committee' %}">Management Committee<span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About the Hall<span class="sr-only">(current)</span></a></li>
         </ul>
       </div>
     </nav>
