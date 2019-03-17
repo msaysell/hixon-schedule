@@ -1,4 +1,4 @@
-import json
+import json, os
 from calendar import day_name
 from django.views.generic.base import TemplateView
 from django.db.models.functions import TruncDay
