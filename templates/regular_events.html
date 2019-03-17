@@ -1,13 +1,33 @@
 {% extends 'base.html' %}
-{% load i18n static %}
+{% load i18n static hixon_filters %}
 
 {% block extra_head %}
+<script src="{% static 'rrule.min.js' %}"></script>
+<script src="{% static 'rrule-nlp.js' %}"></script>
+<script>
+$(document).ready(() => {
+    fetch("{% url 'get_regular_events' %}").then(res => res.json()).then(events => {
+        events.forEach(evt => {
+            let item = Object.create({
+                summary: evt.summary,
+                rules: evt.recurrence.map(r => RRule.fromString(r.replace('RRULE:', "")).toText())
+            });
+            let li = document.createElement('li');
+            li.innerHTML = `${item.summary}: ${item.rules}` ;
+            document.getElementById('events').appendChild(li);
+        });
+    });
+});
+</script>
 {% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="row">
             <h1 class="display-3">Regular Events</h1>
+        </div>
+        <div class="row">
+            <ul id="events"></ul>
         </div>
         <div>
             <dl class="row">

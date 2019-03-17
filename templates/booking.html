@@ -7,8 +7,10 @@
 {% block body %}
     <div class="container">
         <div class="row">
+            <h1 class="display-3">Bookings</h1>
+        </div>
+        <div class="row">
             <div class="col">
-                <h1 class="display-3">Bookings</h1>
                     <p>The hall is available for hire for all events and has hosted many parties, classes and
                     community activities.</p>
                     
@@ -27,25 +29,31 @@
             </div>
             <div class="col">
                 <form class="form">
+                    {{ form.non_field_errors }}
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input name="name" type="text" class="form-control"/>
+                        {{ form.name.errors }}
+                        <label for="{{ form.name.id_for_label }}">Name</label>
+                        {{ form.name }}
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input name="email" type="email" class="form-control"/>
+                        {{ form.email.errors }}
+                        <label for="{{ form.email.id_for_label }}">Email</label>
+                        {{ form.email }}
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input name="phone" type="tel" class="form-control"/>
+                        {{ form.phone.errors }}
+                        <label for="{{ form.phone.id_for_label }}">Phone Number</label>
+                        {{ form.phone }}
                     </div>
                     <div class="form-group">
-                        <label for="date">Date Requested</label>
-                        <input name="date" type="date" class="form-control"/>
+                        {{ form.date.errors }}
+                        <label for="{{ form.date.id_for_label }}">Date Requested</label>
+                        {{ form.date }}
                     </div>
                     <div class="form-group">
-                        <label for="info">Additional Information</label>
-                        <textarea name="info" type="text" class="form-control"></textarea>
+                        {{ form.info.errors }}
+                        <label for="{{ form.info.id_for_label }}">Additional Information</label>
+                        {{ form.info }}
                     </div>
                     <button class="btn btn-primary">Submit</button>
                 </form>

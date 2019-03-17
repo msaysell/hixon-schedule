@@ -11,53 +11,58 @@
         <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
                 integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
                 crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="{% static "schedule.js" %}"></script>
-        <link rel="stylesheet" href="{% static "schedule.css" %}" type="text/css" media="screen">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <script type="text/javascript" 
+                src="{% static "schedule.js" %}"></script>
+        <link rel="stylesheet"
+              href="{% static "schedule.css" %}"
+              type="text/css"
+              media="screen">
         {% block extra_head %}
         {% endblock %}
         <style>
-            body {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  color: #5a5a5a;
-}
-            {#body {#}
-            {#    padding-top: 5rem;#}
-            {#}#}
+          body {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            color: #5a5a5a;
+          }
         </style>
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="{% url 'home' %}">Hixon Memorial Hall</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar" aria-controls="navBar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="{% url 'home' %}">Hixon Memorial Hall</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar" aria-controls="navBar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navBar">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'calendar' %}">Calendar<span class="sr-only">(current)</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'regular_events' %}">Regular Events<span class="sr-only">(current)</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'booking' %}">Bookings<span class="sr-only">(current)</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'hundred_club' %}">100 Club<span class="sr-only">(current)</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'committee' %}">Management Committee<span class="sr-only">(current)</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About the Hall<span class="sr-only">(current)</span></a></li>
-        </ul>
-      </div>
-    </nav>
+        <div class="collapse navbar-collapse" id="navBar">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'calendar' %}">Calendar<span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'regular_events' %}">Regular Events<span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'booking' %}">Bookings<span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'hundred_club' %}">100 Club<span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'committee' %}">Management Committee<span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About the Hall<span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div>
+      </nav>
 
-    <main role="main" class="container">
-    <p style="clear:both">
+      <main role="main" class="container">
+        <p style="clear:both">
         <div id="body">
-            {% block body %}
-            {% endblock %}
+          {% block body %}
+          {% endblock %}
         </div>
 
         <div id="footer">{% block footer %}{% endblock %}</div>
-        </main>
-
+      </main>
     </body>
 </html>

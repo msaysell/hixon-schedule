@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block extra_head %}
+<link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css'/>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/gcal.js'></script>
+<script type='text/javascript'>
+$(document).ready(function() {
+    $(function() {
+      $('#calendar').fullCalendar({
+        googleCalendarApiKey: "{{ api_key }}",
+        events: {
+          googleCalendarId: "{{ calendar_id }}"
+        }
+      });
+    });
+});
+</script>
+{% endblock %}
+
+{% block body %}
+<div id="calendar"></div>
+{% endblock %}
