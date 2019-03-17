@@ -7,15 +7,78 @@
 <script>
 $(document).ready(() => {
     fetch("{% url 'get_regular_events' %}").then(res => res.json()).then(events => {
+        console.log(events);
+        let weekdays = ["MO", "TU", "WE", "TH", "FR", "SA", "SU", "Other"];
+        let weekDayStrings = ["Monday", "Tuesday", "Wednesday", "Thursday",
+                                 "Friday", "Saturday", "Sunday", "Other"];
+        let weeksEvents = {
+            "MO": [],
+            "TU": [],
+            "WE": [],
+            "TH": [],
+            "FR": [],
+            "SA": [],
+            "SU": [],
+            "Other": []
+        }
+
         events.forEach(evt => {
-            let item = Object.create({
-                summary: evt.summary,
-                rules: evt.recurrence.map(r => RRule.fromString(r.replace('RRULE:', "")).toText())
-            });
-            let li = document.createElement('li');
-            li.innerHTML = `${item.summary}: ${item.rules}` ;
-            document.getElementById('events').appendChild(li);
+            let summary = evt.summary;
+            let rules = evt.recurrence.map(r => RRule.fromString(r.replace('RRULE:', "")));
+            evt.rules = rules
+            rules.forEach(rule => {
+                let iter = rule.options.byweekday
+                if(!iter && rule.options.bynweekday) {
+                    iter = rule.options.bynweekday.map(wd => wd[0])
+                }
+                iter.forEach(weekday => weeksEvents[weekdays[weekday]].push(evt))
+            })
         });
+
+        let eventDiv = document.getElementById('events');
+        weekdays.filter(day => weeksEvents[day].length > 0).forEach((day) => {
+            let dayCol = document.createElement('dt');
+            dayCol.setAttribute('class', "col-sm-3 border-bottom")
+            dayCol.innerHTML = weekDayStrings[weekdays.indexOf(day)]
+            
+            let eventsCol = document.createElement('dt');
+            eventsCol.setAttribute('class', "col-sm-9 border-bottom")
+
+            weeksEvents[day]
+                .sort((e, e2) => new Date(e.start.dateTime).setDate(1) - new Date(e2.start.dateTime).setDate(1))
+                .forEach(evt => {
+                let evtRow = document.createElement("div")
+                evtRow.setAttribute('class', "row");
+
+                let timeCol = document.createElement("div")
+                timeCol.setAttribute('class', 'col-sm-6')
+                let start = new Date(evt.start.dateTime).toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit', hour12: true})
+                let end = new Date(evt.end.dateTime).toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit', hour12: true})
+                timeCol.innerHTML = `${start} - ${end}`
+                
+                let detailCol = document.createElement("div")
+                detailCol.setAttribute('class', 'col-sm-6')
+                let description = (evt.description || "").replace(/(\r\n|\n|\r)/gm, "<br />");
+                let rule = ""
+                let rules = evt.rules.filter(r => r.options.freq !== RRule.WEEKLY)
+                if(rules.length > 0){
+                    rule = rules.map(r => {
+                        let ruleStr = r.toText()
+                        ruleStr = ruleStr.charAt(0).toUpperCase() + ruleStr.slice(1)
+                        return `<p>${ruleStr}</p>`
+                    }).join("")
+                }
+                detailCol.innerHTML = `<p>${evt.summary}<p>${rule}<p class="font-weight-light">${description}</p>`
+
+                evtRow.appendChild(timeCol)
+                evtRow.appendChild(detailCol)
+
+                eventsCol.appendChild(evtRow);
+            })
+            
+            eventDiv.appendChild(dayCol)
+            eventDiv.appendChild(eventsCol)
+        })
     });
 });
 </script>
@@ -26,27 +89,8 @@ $(document).ready(() => {
         <div class="row">
             <h1 class="display-3">Regular Events</h1>
         </div>
-        <div class="row">
-            <ul id="events"></ul>
-        </div>
         <div>
-            <dl class="row">
-                {% for day in events %}
-                <dt class="col-sm-3 border-bottom">{{ day.0 }}</dt>
-                <dt class="col-sm-9 border-bottom">
-                    {%for evt in day.1 %}
-                    <div class="row">
-                        <div class="col-sm-6"><p>{{evt.start|date:"P"}} - {{ evt.end|date:"P" }}</p></div>
-                        <div class="col-sm-6">
-                            <p>{{ evt.title }}</p>
-                            <p class="font-weight-light">{{ evt.description|linebreaksbr }}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </dt>
-                {% endfor %}
-            </dl>
-            </ul>
+            <dl id="events" class="row"></dl>
         </div>
     </div>
 {% endblock %}
