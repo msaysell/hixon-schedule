@@ -10,9 +10,26 @@
 $(document).ready(function() {
     $(function() {
       $('#calendar').fullCalendar({
+        height: "auto",
         googleCalendarApiKey: "{{ api_key }}",
         events: {
           googleCalendarId: "{{ calendar_id }}"
+        },
+        eventAfterRender: (event, el, view) => {
+            let start = event.start.format('h:mm a')
+            let end = event.end.format('h:mm a')
+            let description = (event.description || "").replace(/(\r\n|\n|\r)/gm, "<br />");
+            $(el).popover({
+                container: "body",
+                trigger: 'hover',
+                placement: "auto",
+                html: true,
+                title: event.title,
+                content: `${description}<br/>${start} - ${end}`,
+            })
+        },
+        eventClick: (event, jsEvent, view) => {
+            jsEvent.preventDefault();
         }
       });
     });
@@ -21,5 +38,17 @@ $(document).ready(function() {
 {% endblock %}
 
 {% block body %}
-<div id="calendar"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <h1>Events Calendar</h1>
+            <p class="font-weight-light">
+                <span class="d-none d-sm-block">Hover over an</span><span class="d-block d-sm-none">Click on an</span> event for more information.
+            </p>
+        </div>
+        <div class="col-sm-9">
+            <div id="calendar"></div>
+        </div>
+    </div>
+</div>
 {% endblock %}
